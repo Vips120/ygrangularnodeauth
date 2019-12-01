@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+                <span class="alert alert-danger" *ngIf="showError">
+                        {{showError}}
+                         </span>
+            <form [formGroup]="userLogin" style="margin-top:40px;" (ngSubmit)="Auth(userLogin.value)">
+                    
+                <div formGroupName="UserLogin">
+                    <div class="form-group">
+                        <input type="text" 
+                         formControlName="email"
+                        class="form-control" placeholder="enter email"
+                         [class.is-invalid]="!userLogin.controls.UserLogin.controls.email.valid
+                           && submitted
+                         "
+                         [class.is-valid]="userLogin.controls.UserLogin.controls.email.valid"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="enter password"
+                         formControlName="password"
+                         [class.is-invalid]="!userLogin.controls.UserLogin.controls.password.valid
+                         && submitted
+                       "
+                       [class.is-valid]="userLogin.controls.UserLogin.controls.password.valid"
+                        >
+                    </div>
+                </div>
+             
+                <button type="submit" class="btn btn-outline-danger">submit</button>
+            </form>
+        </div>
+    </div>
+</div>
