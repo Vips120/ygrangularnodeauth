@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form [formGroup]="registerForm" (ngSubmit)="Save(registerForm.value)">
+               <div class="form-group">
+                   <input type="text" class="form-control" placeholder="Enter firstname"
+                    formControlName="firstname"
+                   >
+                   <div class="alert alert-danger"
+                    *ngIf="!registerForm.controls.firstname.valid && submitted"
+                   >
+                        firstname is required*
+                   </div>
+               </div> 
+               <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter lastname"
+                 formControlName="lastname"
+                >
+                <div class="alert alert-danger"
+                *ngIf="!registerForm.controls.lastname.valid && submitted"
+               >
+                    lastname is required*
+               </div>
+            </div> 
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="address"
+                 formControlName="address"
+                >
+                <div class="alert alert-danger"
+                *ngIf="!registerForm.controls.address.valid && submitted"
+               >
+                    address is required*
+               </div>
+            </div>
+            <div formGroupName="UserLogin">
+                <div class="form-group" >
+                    <input type="text" class="form-control" placeholder="Enter emailid"
+                     formControlName="email"
+                    >
+                    <div class="alert alert-danger"
+                    *ngIf="!registerForm.controls.UserLogin.controls.email.valid && submitted"
+                   >
+                        email is required*
+                   </div>
+                </div> 
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter password"
+                    formControlName="password"
+                    >
+                    <div class="alert alert-danger"
+                    *ngIf="!registerForm.controls.UserLogin.controls.password.valid && submitted"
+                   >
+                        password is required*
+                   </div>
+                </div> 
+            </div> 
+            <button type="submit" class="btn btn-outline-danger">submit</button>
+            </form>
+        </div>
+    </div>
+</div>
